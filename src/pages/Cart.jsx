@@ -1,11 +1,14 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import CartItem from '../components/CartItem';
+import {useSelector} from 'react-redux';
+import emptyImg from '../assets/img/empty-cart.png'
 
 const Cart = () => {
+    const {totalCount, totalPrice, items} = useSelector(({cart}) => cart)
+
     return (
         <div className="container container--cart">
-
                 <div className="cart">
                     <div className="cart__top">
                         <h2 className="content__title">
@@ -85,10 +88,10 @@ const Cart = () => {
                     <div className="cart__bottom">
                         <div className="cart__bottom-details">
               <span>
-                Всего пицц: <b> шт.</b>
+                Всего пицц: <b>{totalCount} шт.</b>
               </span>
                             <span>
-                Сумма заказа: <b> ₽</b>
+                Сумма заказа: <b>{totalPrice} грн</b>
               </span>
                         </div>
                         <div className="cart__bottom-buttons">
@@ -127,7 +130,7 @@ const Cart = () => {
                         <br />
                         Для того, чтобы заказать пиццу, перейди на главную страницу.
                     </p>
-                    <img  alt="Empty cart" />
+                    <img  src={emptyImg} alt="Empty cart" />
                     <Link to="/" className="button button--black">
                         <span>Вернуться назад</span>
                     </Link>

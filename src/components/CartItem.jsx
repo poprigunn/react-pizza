@@ -1,4 +1,6 @@
 import React from 'react';
+import {Button} from '../components';
+
 
 const CartItem = () => {
 return (
@@ -61,7 +63,7 @@ return (
             {/*<b>{totalPrice} ₽</b>*/}
         </div>
         <div className="cart__item-remove">
-            {/*<Button onClick={handleRemoveClick} className="button--circle" outline>*/}
+            <Button className="button--circle" outline>
                 <svg
                     width="10"
                     height="10"
@@ -77,7 +79,7 @@ return (
                         fill="#EB5A1E"
                     />
                 </svg>
-            {/*</Button>*/}
+            </Button>
         </div>
     </div>
 )
